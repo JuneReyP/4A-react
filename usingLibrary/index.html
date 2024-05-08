@@ -15,6 +15,15 @@
         border: 1px solid black;
         padding-top: 5px;
         padding-left: 10px;
+        height: 50px;
+    }
+    button{
+        height: 50px;
+        background-color: white;
+        border: 1px solid lightgray;
+    }
+    button.operator{
+        background-color: darkgray;
     }
 </style>
 <div id="app"></div>
@@ -72,29 +81,29 @@ function Calculator(){
             <CalcButton value="7"/>
             <CalcButton value="8"/>
             <CalcButton value="9"/>
-            <CalcButton value="*"/>
+            <CalcButton className="operator" value="*"/>
 
             <CalcButton value="4"/>
             <CalcButton value="5"/>
             <CalcButton value="6"/>
-            <CalcButton value="/"/>
+            <CalcButton className="operator" value="/"/>
 
             <CalcButton value="1"/>
             <CalcButton value="2"/>
             <CalcButton value="3"/>
-            <CalcButton value="+"/>
+            <CalcButton className="operator" value="+"/>
 
             <CalcButton value="C"/>
             <CalcButton value="0"/>
-            <CalcButton value="="/>
-            <CalcButton value="-"/>
+            <CalcButton className="operator" value="="/>
+            <CalcButton className="operator" value="-"/>
         </div>
     );
 }
 // child component
 function CalcButton(props){
     return(
-        <button>{props.value}</button>
+        <button className={props.className}>{props.value}</button>
     );
 }
 ReactDOM.render(<div className="app-container"><Calculator/></div>, document.getElementById("app"));

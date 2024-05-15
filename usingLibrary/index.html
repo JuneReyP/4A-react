@@ -28,15 +28,9 @@
 </style>
 <div id="app"></div>
 
-<script
-  src="https://unpkg.com/react@18/umd/react.development.js"
-  crossorigin
-></script>
-<script
-  src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-  crossorigin
-></script>
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- babel/jsx -->
 
 <script type="text/babel">
   // function sample(a, b){
@@ -72,16 +66,34 @@
 //===============================================================================================
 //React callback function
 
-
-// for the onCLick event
-function handleNumber(value){
-    alert(value);
-}
 // parent component
 function Calculator(){
+
+    // for the onCLick event
+function handleNumber(value){
+    // alert(value);
+
+    let newValue = value;
+    
+    if(!calc.isInitial){
+        newValue = calc.current + value;
+    }
+    setCalc({current: newValue, isInitial: false});
+}
+   
+    // const [display, setDisplay] = React.useState('0');
+
+// useState
+const [calc, setCalc] = React.useState({
+    current: '0',
+    total: '',
+    isInitial: true,
+    preOp:''
+});
+
     return(
         <div className="calculator">
-            <div className="display">0</div>
+            <div className="display">{calc.current}</div>
 
             <CalcButton value="7"/>
             <CalcButton value="8"/>

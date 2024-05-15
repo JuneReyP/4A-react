@@ -79,7 +79,7 @@ function handleNumber(value){
     if(!calc.isInitial){
         newValue = calc.current + value;
     }
-    setCalc({current: newValue, isInitial: false});
+    setCalc({current: newValue, total: calc.total, isInitial: false, preOp: calc.preOp});
 }
    
     // const [display, setDisplay] = React.useState('0');

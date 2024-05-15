@@ -85,12 +85,23 @@ function handleNumber(value){
     // const [display, setDisplay] = React.useState('0');
 
 // useState
+//useState returns an array with 2 elements, the first element is the current state value, the second element is a function that allows you to update the state value
 const [calc, setCalc] = React.useState({
     current: '0',
     total: '',
     isInitial: true,
     preOp:''
 });
+
+// handle clear button
+function handleClear(){
+    setCalc({
+        current: '0',
+        total: '',
+        isInitial: true,
+        preOp:''
+    });
+}
 
     return(
         <div className="calculator">

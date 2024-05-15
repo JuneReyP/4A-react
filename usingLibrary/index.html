@@ -103,6 +103,28 @@ function handleClear(){
     });
 }
 
+// for calculation function
+function doCalculation(){
+    let total="";
+    switch(operator){
+        case '*':
+            total *= parseFloat(calc.current); //equivalent to total = tolal * parseFloat(calc.current)
+            break;
+        case '/':
+            total /= parseFloat(calc.current); //equivalent to total = tolal / parseFloat(calc.current)
+            break;
+        case '+':
+            total += parseFloat(calc.current); //equivalent to total = tolal + parseFloat(calc.current)
+            break;
+        case '-':
+            total -= parseFloat(calc.current); //equivalent to total = tolal - parseFloat(calc.current)
+            break;
+        default:
+            total = parseFloat(calc.current)
+    }
+    return total;
+}
+
     return(
         <div className="calculator">
             <div className="display">{calc.current}</div>
